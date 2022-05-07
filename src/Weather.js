@@ -79,7 +79,11 @@ const Weather = () => {
           ) : data.weather[0].main.toLowerCase() === "drizzle" ? (
             <img className="imgCondition" src={Drizzle} alt="Drizzle" />
           ) : data.weather[0].main.toLowerCase() === "thunderstorm" ? (
-            <img className="imgCondition" src={Thunderstorm} alt="Thunderstorm" />
+            <img
+              className="imgCondition"
+              src={Thunderstorm}
+              alt="Thunderstorm"
+            />
           ) : (
             "undefined"
           )}

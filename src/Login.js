@@ -1,15 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Login = () => {
-  // const [pass, setPass] = useState("");
   const [mail, setMail] = useState("");
   const [password, setPassword] = useState("");
-  let navigate = useNavigate();
 
-  // const handleChange = (e) => {
-  //   setPass(e.target.value);
-  // };
   const inputRef = useRef(null);
 
   useEffect(() => {
@@ -24,7 +19,6 @@ const Login = () => {
     };
     users.push(newUser);
     localStorage.setItem("users", JSON.stringify(users));
-    navigate("/weather");
   }
   window.onbeforeunload = function() {
     localStorage.clear();
@@ -44,8 +38,6 @@ const Login = () => {
           </div>
           <div className="col-md-7 col-lg-5 col-xl-5 mt-5 offset-xl-1">
             <form>
-              {/* <!-- Email input --> */}
-
               <div className="form-outline mb-4">
                 <input
                   type="email"
@@ -61,9 +53,8 @@ const Login = () => {
                 />
                 <label className="form-label" for="form3Example3"></label>
               </div>
-              {/* <!-- Password input --> */}
+
               <div className="form-outline mb-3">
-                {/* <Password handleChange={handleChange} /> */}
                 <input
                   type="password"
                   id="form3Example4"
@@ -74,23 +65,19 @@ const Login = () => {
                   onChange={(e) => {
                     setPassword(e.target.value);
                   }}
-                  // onChange={handleChange}
                 />
                 <label className="form-label" for="form3Example4"></label>
-                {/* {pass.length < 6 && (
-                  <p> Password must be at least 6 characters</p>
-                )} */}
               </div>
 
-              {/* <Link to={`\weather`}> */}
-              <button
-                type="submit"
-                className="btn btn-primary btn-lg btn-block "
-                onClick={saveUsers}
-              >
-                Sign in
-              </button>
-              {/* </Link> */}
+              <Link to={`\weather`}>
+                <button
+                  type="submit"
+                  className="btn btn-primary btn-lg btn-block "
+                  onClick={saveUsers}
+                >
+                  Sign in
+                </button>
+              </Link>
             </form>
           </div>
         </div>
