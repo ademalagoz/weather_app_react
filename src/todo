@@ -1,0 +1,30 @@
+1-User will see first login page +
+2-email input should focus--search useref+
+3-Email and password should be required.+
+4-Password should be longer than 6 letters.?
+5-After email and pass user should login with 'click'+ CHECK+
+6-After email and pass user should login with 'enter'+ CHECK+
+
+7-email and pass should keep in the local storage if there is no email and password redirect to login? 
+
+
+
+
+8-A user should not be able to access any page with url without login.?
+
+
+9-after login user will see search and default london  ?
+
+
+
+
+10-search input should focus +
+11-user should use search field with 'click'+
+12-user should use search field with 'enter'+
+13-search button will be permanent on every page  ?
+14-after search user will see city or 'City can’t find!'+
+15-different images for different weather conditions +
+16-Every result page should have at least image, city name, date of today, temperature, and humidity.image+
+17-When leaving the page with logout button or closing the tab, the email and password in the local storage should be cleared.+
+
+
