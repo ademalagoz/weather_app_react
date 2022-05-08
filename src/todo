@@ -4,20 +4,9 @@
 4-Password should be longer than 6 letters.?
 5-After email and pass user should login with 'click'+ CHECK+
 6-After email and pass user should login with 'enter'+ CHECK+
-
-7-email and pass should keep in the local storage if there is no email and password redirect to login? 
-
-
-
-
-8-A user should not be able to access any page with url without login.?
-
-
+7-email and pass should keep in the local storage if there is no email and password redirect to login+
+8-A user should not be able to access any page with url without login.+
 9-after login user will see search and default london  ?
-
-
-
-
 10-search input should focus +
 11-user should use search field with 'click'+
 12-user should use search field with 'enter'+

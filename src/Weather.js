@@ -13,14 +13,16 @@ const Weather = () => {
 
   const getWeather = (e) => {
     const APIkey = "b3546e9e22f2496f6ee2975381f86c92";
+
     if (e.key === "Enter") {
       fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIkey}&units=metric`
       )
         .then((res) => res.json())
         .then((result) => {
+          console.log(result.name);
+          setCity(result.name);
           setData(result);
-          setCity("");
         })
         .catch((err) => {
           console.error(err);
@@ -61,11 +63,12 @@ const Weather = () => {
       {typeof data.main !== "undefined" ? (
         <section>
           <h4>Condition:{data.weather[0].main}</h4>
-          <h4>City:{data.name}</h4>
+          <h4>
+            City:{data.name},{data.sys.country}
+          </h4>
           <h4>Date: {date}</h4>
           <h4>Temperature:{Math.round(data.main.temp)} ℃</h4>
           <h4>Humidity:{data.main.humidity}</h4>
-
           {data.weather[0].main.toLowerCase() === "clear" ? (
             <img className="imgCondition" src={Clear} alt="Clear" />
           ) : data.weather[0].main.toLowerCase() === "clouds" ? (
@@ -89,7 +92,6 @@ const Weather = () => {
           )}
         </section>
       ) : (
-        //
         <p>City can’t find!</p>
       )}
     </>

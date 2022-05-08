@@ -1,9 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = ({ setUser }) => {
   const [mail, setMail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const inputRef = useRef(null);
 
@@ -11,7 +12,13 @@ const Login = () => {
     inputRef.current.focus();
   }, []);
 
-  function saveUsers(e) {
+  function saveUsers() {
+    if (!mail || !password) return;
+    else if (password.length < 6)
+      return alert("Password must have at least 6 characters");
+    setUser({ mail: mail, password: password });
+
+    navigate("/weather");
     const users = JSON.parse(localStorage.getItem("users") || "[]");
     const newUser = {
       mail: mail,
@@ -53,7 +60,6 @@ const Login = () => {
                 />
                 <label className="form-label" for="form3Example3"></label>
               </div>
-
               <div className="form-outline mb-3">
                 <input
                   type="password"
@@ -69,15 +75,13 @@ const Login = () => {
                 <label className="form-label" for="form3Example4"></label>
               </div>
 
-              <Link to={`\weather`}>
-                <button
-                  type="submit"
-                  className="btn btn-primary btn-lg btn-block "
-                  onClick={saveUsers}
-                >
-                  Sign in
-                </button>
-              </Link>
+              <button
+                type="submit"
+                className="btn btn-primary btn-lg btn-block "
+                onClick={saveUsers}
+              >
+                Sign in
+              </button>
             </form>
           </div>
         </div>
