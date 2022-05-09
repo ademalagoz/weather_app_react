@@ -4,13 +4,13 @@ import Login from "./Login";
 import Weather from "./Weather";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
+import W from "./W";
 
 function App() {
-  const [user, setUser] = useState(null);
   return (
     <Router>
       <Routes>
-        <Route exact path="/" element={<Login setUser={setUser} />} />
+        <Route exact path="/" element={<Login />} />
         <Route path="/weather/" element={<Weather />} />
       </Routes>
     </Router>

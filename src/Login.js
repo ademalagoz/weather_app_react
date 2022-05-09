@@ -1,11 +1,12 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Login = ({ setUser }) => {
+const Login = () => {
+  const [user, setUser] = useState(null);
   const [mail, setMail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
 
+  const navigate = useNavigate();
   const inputRef = useRef(null);
 
   useEffect(() => {
@@ -30,6 +31,7 @@ const Login = ({ setUser }) => {
   window.onbeforeunload = function() {
     localStorage.clear();
   };
+
   return (
     <section className="vh-100">
       <div className="container py-5 h-100">
