@@ -4,7 +4,6 @@ import Login from "./Login";
 import Weather from "./Weather";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
-import W from "./W";
 
 function App() {
   return (
