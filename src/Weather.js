@@ -49,24 +49,23 @@ const Weather = () => {
       <div className="container">
         <div className="row">
           <div className="col-3 ml-auto text-right py-4">
-            <div className="btn-group">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Location"
-                value={city}
-                onChange={(e) => setCity(e.target.value)}
-                onKeyPress={getWeather}
-                ref={inputRef}
-              />
-              <button className="btn btn-primary">Search</button>
-            </div>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Location"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+              onKeyPress={getWeather}
+              ref={inputRef}
+            />
           </div>
-
-          <div className="col-3 ml-auto text-right py-4">
+          <div className="col-3 py-4">
+            <button className="btn btn-primary">Search</button>
+          </div>
+          <div className="col-3 py-4">
             <div className="btn-group danger">
               <button
-                className="btn btn-outline-danger border-right-0"
+                className="btn btn-outline-danger"
                 type="button"
                 onClick={logout}
               >
@@ -75,8 +74,6 @@ const Weather = () => {
             </div>
           </div>
         </div>
-      </div>
-      <div className="container">
         <div className="row">
           <div className="col-3 ml-auto text-right py-4">
             {typeof data.main !== "undefined" ? (
@@ -88,34 +85,41 @@ const Weather = () => {
                 <h5>Date: {date}</h5>
                 <h5>Temperature:{Math.round(data.main.temp)} ℃</h5>
                 <h5>Humidity:{data.main.humidity}</h5>
-                {data.weather[0].main.toLowerCase() === "clear" ? (
-                  <img className="imgCondition" src={Clear} alt="Clear" />
-                ) : data.weather[0].main.toLowerCase() === "clouds" ? (
-                  <img className="imgCondition" src={Clouds} alt="Clouds" />
-                ) : data.weather[0].main.toLowerCase() === "rain" ? (
-                  <img className="imgCondition" src={Rain} alt="Rain" />
-                ) : data.weather[0].main.toLowerCase() === "snow" ? (
-                  <img className="imgCondition" src={Snow} alt="Snow" />
-                ) : data.weather[0].main.toLowerCase() === "atmosphere" ? (
-                  <img
-                    className="imgCondition"
-                    src={Atmosphere}
-                    alt="Atmosphere"
-                  />
-                ) : data.weather[0].main.toLowerCase() === "drizzle" ? (
-                  <img className="imgCondition" src={Drizzle} alt="Drizzle" />
-                ) : data.weather[0].main.toLowerCase() === "thunderstorm" ? (
-                  <img
-                    className="imgCondition"
-                    src={Thunderstorm}
-                    alt="Thunderstorm"
-                  />
-                ) : (
-                  "undefined"
-                )}
               </section>
             ) : (
               <p>City can’t find!</p>
+            )}
+          </div>
+
+          <div className="col-3 ml-auto text-right py-4">
+            {typeof data.main !== "undefined" ? (
+              data.weather[0].main.toLowerCase() === "clear" ? (
+                <img className="imgCondition" src={Clear} alt="Clear" />
+              ) : data.weather[0].main.toLowerCase() === "clouds" ? (
+                <img className="imgCondition" src={Clouds} alt="Clouds" />
+              ) : data.weather[0].main.toLowerCase() === "rain" ? (
+                <img className="imgCondition" src={Rain} alt="Rain" />
+              ) : data.weather[0].main.toLowerCase() === "snow" ? (
+                <img className="imgCondition" src={Snow} alt="Snow" />
+              ) : data.weather[0].main.toLowerCase() === "atmosphere" ? (
+                <img
+                  className="imgCondition"
+                  src={Atmosphere}
+                  alt="Atmosphere"
+                />
+              ) : data.weather[0].main.toLowerCase() === "drizzle" ? (
+                <img className="imgCondition" src={Drizzle} alt="Drizzle" />
+              ) : data.weather[0].main.toLowerCase() === "thunderstorm" ? (
+                <img
+                  className="imgCondition"
+                  src={Thunderstorm}
+                  alt="Thunderstorm"
+                />
+              ) : (
+                alert("No image")
+              )
+            ) : (
+              "Nothing"
             )}
           </div>
         </div>

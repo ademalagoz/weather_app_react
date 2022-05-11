@@ -1,7 +1,5 @@
 .imgCondition {
-  height: 300px;
-  width: 400px;
-  background-size: cover;
-  transition-duration: 1s;
+display: flex;
+width: 600px;
 
   }
