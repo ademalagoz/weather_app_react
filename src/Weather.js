@@ -119,7 +119,7 @@ const Weather = () => {
                 alert("No image")
               )
             ) : (
-              "Nothing"
+              ""
             )}
           </div>
         </div>
